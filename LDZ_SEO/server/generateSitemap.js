@@ -49,7 +49,7 @@ function toNewsSlug(title = "") {
 /* -------- static routes -------- */
 const STATIC_ROUTES = [
     { url: "/", changefreq: "daily", priority: "1.0" },
-    { url: "/venue", changefreq: "weekly", priority: "0.8" },
+    // { url: "/venue", changefreq: "weekly", priority: "0.8" },
     { url: "/sponsors", changefreq: "weekly", priority: "0.8" },
     { url: "/media-partners", changefreq: "monthly", priority: "0.7" },
     { url: "/agenda-page", changefreq: "weekly", priority: "0.8" },
@@ -110,6 +110,18 @@ async function fetchSponsorSlugs() {
         }));
 }
 
+async function fetchNavbarNavigationSlugs() {
+    const d = await get("navmaincategories");
+    const list = d?.status ? d.navMainategories : [];
+    return list
+        .filter((s) => s.navMainCategoryName === 'VENUE' && s.isChecked === "Yes")
+        .map((s) => ({
+            url: `/venue`,
+            changefreq: "monthly",
+            priority: "0.5",
+        }));
+}
+
 /* -------- XML builder -------- */
 function buildSitemapXml(routes) {
     const today = new Date().toISOString().split("T")[0];
@@ -139,12 +151,13 @@ ${urlEntries}
 /* -------- main -------- */
 async function generateSitemap() {
 
-    const [speakerSlugs, newsSlugs, trendSlugs, sponsorSlugs] =
+    const [speakerSlugs, newsSlugs, trendSlugs, sponsorSlugs, navbarSlugs] =
         await Promise.all([
             fetchSpeakerSlugs(),
             fetchNewsSlugs(),
             fetchTrendSlugs(),
             fetchSponsorSlugs(),
+            fetchNavbarNavigationSlugs(),
         ]);
 
     const allRoutes = [
@@ -153,6 +166,7 @@ async function generateSitemap() {
         ...newsSlugs,
         ...trendSlugs,
         ...sponsorSlugs,
+        ...navbarSlugs,
     ];
 
 
