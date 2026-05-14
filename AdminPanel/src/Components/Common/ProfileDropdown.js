@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
-import { createSelector } from 'reselect';
-import { useSelector } from 'react-redux';
-
 //import images
 import avatar1 from "../../assets/images/users/avatar-1.jpg";
 
 const ProfileDropdown = () => {
 
-
-    const profiledropdownData = createSelector(
-        (state) => state.Profile,
-        (state) => ({
-            user: state.user
-        })
-      );
-    // Inside your component
-    const {user} = useSelector(profiledropdownData);
-
     const [userName, setUserName] = useState("Admin");
+    const [userRole, setUserRole] = useState("Founder");
 
     useEffect(() => {
-        if (sessionStorage.getItem("authUser")) {
-            const obj = JSON.parse(sessionStorage.getItem("authUser"));
-            setUserName(process.env.REACT_APP_DEFAULTAUTH === "fake" ? obj.username === undefined ? user.first_name ? user.first_name : obj.data.first_name : "Admin" || "Admin" :
-                process.env.REACT_APP_DEFAULTAUTH === "firebase" ? obj.email && obj.email : "Admin"
-            );
+        const authUser = localStorage.getItem("authUser");
+        if (authUser) {
+            const obj = JSON.parse(authUser);
+            if (obj.username) setUserName(obj.name);
+            if (obj.role) setUserRole(obj.role);
         }
-    }, [userName, user]);
+    }, []);
 
     //Dropdown Toggle
     const [isProfileDropdown, setIsProfileDropdown] = useState(false);
@@ -44,7 +32,7 @@ const ProfileDropdown = () => {
                             alt="Header Avatar" />
                         <span className="text-start ms-xl-2">
                             <span className="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{userName}</span>
-                            <span className="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                            <span className="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{userRole}</span>
                         </span>
                     </span>
                 </DropdownToggle>
