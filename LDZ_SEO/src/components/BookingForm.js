@@ -723,7 +723,7 @@ const BookingForm = () => {
             style={{ maxWidth: "1280px" }}
           >
             <img
-              onClick={() => navigate("/")}
+              onClick={() => { window.location.href = "/"; }}
               src={navLogos?.whiteLogo}
               alt="site logo"
             ></img>

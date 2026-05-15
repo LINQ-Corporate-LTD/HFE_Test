@@ -384,7 +384,7 @@ const RemindMeLater = () => {
             className="PageForm_headerInner__sdlhn"
             style={{ maxWidth: "1070px" }}
           >
-            <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
+            <img onClick={() => { window.location.href = "/"; }} src={navLogos?.whiteLogo} alt="site logo"></img>
           </div>
         </div>
         <div className="RemindMeLater_container__vWyw0">
@@ -471,8 +471,10 @@ const RemindMeLater = () => {
               <span onClick={() => window.open("/cookie-policy", "_blank")}>
                 Cookie Policy
               </span>
-              <span className="PageForm_divide__vwhn0">|</span>IQ International PTe.
-              LTD
+              <span className="PageForm_divide__vwhn0">|</span>
+              <span onClick={() => window.open("https://iq-hub.com/", "_blank")}>
+                IQ International PTe.LTD
+              </span>
             </p>
             <p>©2026 Litihium Downstream Summit 2026</p>
           </div>

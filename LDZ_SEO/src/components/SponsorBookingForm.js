@@ -863,7 +863,7 @@ const SponsorBookingForm = () => {
               className="PageForm_headerInner__sdlhn"
               style={{ maxWidth: "1280px" }}
             >
-              <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="Site logo"></img>
+              <img onClick={() => { window.location.href = "/"; }} src={navLogos?.whiteLogo} alt="Site logo"></img>
             </div>
           </div>
           <div className="SponsorFormV2_container__d5aHK">

@@ -1120,7 +1120,7 @@ const AddSponsorDelegateForm = () => {
                 style={{ maxWidth: "1070px" }}
               >
                 <img
-                  onClick={() => navigate("/")}
+                  onClick={() => { window.location.href = "/"; }}
                   src={navLogos?.whiteLogo}
                   alt="Site logo"
                 ></img>
@@ -1300,7 +1300,7 @@ const AddSponsorDelegateForm = () => {
                 style={{ maxWidth: "1280px" }}
               >
                 <img
-                  onClick={() => navigate("/")}
+                  onClick={() => { window.location.href = "/"; }}
                   src={navLogos?.whiteLogo}
                   alt="Site logo"
                 ></img>
@@ -1504,7 +1504,7 @@ const AddSponsorDelegateForm = () => {
               style={{ maxWidth: "1070px" }}
             >
               <img
-                onClick={() => navigate("/")}
+                onClick={() => { window.location.href = "/"; }}
                 src={navLogos?.whiteLogo}
                 alt="site logo"
               ></img>
