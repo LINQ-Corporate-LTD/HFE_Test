@@ -334,11 +334,11 @@ const Home = () => {
             position: "absolute",
           }}
         >
-          <a href="/">Lithium &amp; Downstream Summit 2026</a>
-          <a href="/">Lithium Downstream trends</a>
+          <a href="/"> Hydrogen & Fuel Cells 2026</a>
+          <a href="/">Hydrogen & Fuel Cells trends</a>
           <a href="/">market evolution insights</a>
           <a href="/">crypto innovation analysis</a>
-          <a href="/">Litihium Downstream Summit 2026</a>
+          <a href="/">Hydrogen & Fuel Cells 2026</a>
         </div>
         <RelatedEventsSection />
       </article>

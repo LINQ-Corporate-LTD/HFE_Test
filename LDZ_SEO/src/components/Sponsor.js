@@ -411,7 +411,7 @@ const Sponsors = () => {
   }, []);
 
   const sponsorLogoBlack =
-    "https://www.direct-lithium-extraction-show.com/api/images/sponsor/1757675931045-678212680.png";
+    "https://www.europe.hydrogen-fuel-cell-summit.com/api/images/sponsor/1757675931045-678212680.png";
 
   const pageSeo = usePageSeo("sponsors");
   const seoTitle = pageSeo.pageMetaTitle;
@@ -987,7 +987,7 @@ const Sponsors = () => {
                       <p>
                         <img src={emailIcon} alt="emil icon"></img>
                         <a
-                          href={`mailto:${item?.companyPersonEmail}?subject=Lithium &amp; Downstream Summit 2026`}
+                          href={`mailto:${item?.companyPersonEmail}?subject=Hydrogen & Fuel Cells 2026`}
                         >
                           {" "}
                           {item?.companyPersonEmail}
