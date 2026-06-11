@@ -442,7 +442,7 @@ const Sponsors = () => {
                   <div
                     className="DetailsContainer_imageContainer__ncJwH"
                     style={{
-                      backgroundImage: `url(https://www.desalination-resource-recovery.com/images/sponsor-image.png)`,
+                      backgroundImage: `url(/images/WebImages/sponsor-image.png)`,
                       backgroundSize: "cover",
                     }}
                   ></div>
